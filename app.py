@@ -1,6 +1,6 @@
 from flask import Flask, Response  # Testing
 # Testing
-app = Flask(__name__)  # Testing
+app = Flask(__name__, static_folder=None)  # Testing
 # Testing
 HOST = '127.0.0.1'  # Testing
 PORT = 3000  # Testing
