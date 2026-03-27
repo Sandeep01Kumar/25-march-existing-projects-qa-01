@@ -39,7 +39,7 @@
 | Requirement | Version  | Notes                                      |
 |-------------|----------|--------------------------------------------|
 | Node.js     | v20.x+   | Required runtime environment               |
-| npm         | v11.x+   | Ships with Node.js; used for dev tooling   |
+| npm         | v10.x+   | Ships with Node.js; used for dev tooling   |
 
 No additional tools, frameworks, or system-level dependencies are needed.
 
@@ -50,7 +50,7 @@ node --version
 # Expected: v20.x.x or later
 
 npm --version
-# Expected: v11.x.x or later
+# Expected: v10.x.x or later
 ```
 
 ---
