@@ -100,11 +100,11 @@ node server.js
 
 **Expected console output:**
 
-```
+```text
 Server running at http://127.0.0.1:3000/
 ```
 
-*Source: server.js:12–13*
+*Source: server.js:66–68*
 
 ### Sending Requests
 
@@ -116,7 +116,7 @@ curl http://127.0.0.1:3000/
 
 **Expected output:**
 
-```
+```text
 Hello, World!
 ```
 
@@ -128,7 +128,7 @@ curl -v http://127.0.0.1:3000/
 
 **Expected output (relevant headers):**
 
-```
+```text
 < HTTP/1.1 200 OK
 < Content-Type: text/plain
 < Date: ...
@@ -141,6 +141,18 @@ Hello, World!
 ### Stopping the Server
 
 Press `Ctrl+C` in the terminal where the server is running.
+
+### Generating Documentation
+
+The project includes [JSDoc](https://jsdoc.app/) as a devDependency for generating HTML API documentation from the inline JSDoc annotations in `server.js`. To generate the documentation:
+
+```bash
+npm run docs
+```
+
+This runs `jsdoc server.js -d docs` and outputs browsable HTML documentation to the `docs/` directory. Open `docs/index.html` in your browser to view it.
+
+> **Note:** You must run `npm install` first to install the `jsdoc` devDependency before using this command.
 
 ---
 
@@ -159,7 +171,7 @@ The server exposes a single, universal endpoint that responds identically to **a
 | **Response Content-Type** | `text/plain`           |
 | **Response Body** | `Hello, World!\n`               |
 
-*Source: server.js:6–10*
+*Source: server.js:48–55*
 
 ### Request/Response Example
 
@@ -173,7 +185,7 @@ curl -X DELETE http://127.0.0.1:3000/foo
 
 **Response (identical for all):**
 
-```
+```text
 HTTP/1.1 200 OK
 Content-Type: text/plain
 
@@ -219,7 +231,7 @@ sequenceDiagram
 
 ## Project Structure
 
-```
+```text
 .
 ├── README.md           # Project documentation (this file)
 ├── server.js           # HTTP server implementation (~14 lines)
@@ -245,7 +257,7 @@ The server's behavior is controlled by two constants defined in `server.js`:
 | `hostname` | `string` | `'127.0.0.1'` | IP address the server binds to (loopback / localhost only)  |
 | `port`     | `number` | `3000`         | TCP port the server listens on for incoming connections     |
 
-*Source: server.js:3–4*
+*Source: server.js:26, 34*
 
 > **⚠️ Important:** These values are **hardcoded** in `server.js`. To change them, edit the source file directly. The server does not support environment variable configuration.
 
@@ -336,6 +348,8 @@ COPY server.js .
 
 EXPOSE 3000
 
+USER node
+
 CMD ["node", "server.js"]
 ```
 
@@ -424,4 +438,4 @@ Please ensure all code follows the existing style and includes appropriate JSDoc
 
 This project is licensed under the **MIT License**.
 
-*Source: package.json:10*
+*Source: package.json:12*
